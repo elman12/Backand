@@ -12,6 +12,8 @@ const timezone = require('dayjs/plugin/timezone');
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
+
+//require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -62,12 +64,20 @@ app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MySQL
-const pool = mysql.createPool({
+/*const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'anjing'
+});*/
+
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 // Endpoint untuk menerima upload file gambar dan menyimpan data ruangan
