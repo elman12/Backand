@@ -23,12 +23,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
-  },
-  "engines": {
-<<<<<<< HEAD
-    "node": "18.x"
-=======
-    "node": "18.x"  
->>>>>>> d1fdd64b180fb369b7fc77279be5f7c7e805bdb5
   }
 }
